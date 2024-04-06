@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TabBarScroll extends StatefulWidget {
-  const TabBarScroll({Key? key}) : super(key: key);
+  const TabBarScroll({super.key});
 
   @override
   TabBarScrollState createState() => TabBarScrollState();

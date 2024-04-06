@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/common.dart';
+import 'package:helper/shared/shared.dart';
 import 'package:helper/modules/leaderbord/leader_board.dart';
 import 'package:helper/modules/list_card/the_list_card.dart';
 import 'package:helper/modules/image_cache/precache_image.dart';
@@ -7,7 +7,7 @@ import 'package:helper/modules/insta_profile/insta_profile.dart';
 // import 'package:helper/src/tab_bar_scroll/tab_bar_scroll.dart';
 
 class IndexedStackNav extends StatefulWidget {
-  const IndexedStackNav({Key? key}) : super(key: key);
+  const IndexedStackNav({super.key});
 
   @override
   IndexedStackNavState createState() => IndexedStackNavState();

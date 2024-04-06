@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/common.dart';
-import 'package:helper/core/extensions/extensions.dart';
+import 'package:helper/shared/shared.dart';
+import 'package:helper/core/extensions/index.dart';
 
 class FlexibleText extends StatelessWidget {
   const FlexibleText({

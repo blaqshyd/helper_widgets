@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/common.dart';
-import 'package:helper/common/custom_textf.dart';
-import 'package:helper/core/extensions/extensions.dart';
-import 'package:helper/core/validators.dart';
+import 'package:helper/core/extensions/index.dart';
+import 'package:helper/core/utils/validators.dart';
+import 'package:helper/core/widgets/biometrics.dart';
+import 'package:helper/shared/widgets/custom_textf.dart';
+import 'package:helper/shared/shared.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class AuthScreens extends StatefulWidget {
-  const AuthScreens({Key? key}) : super(key: key);
+  const AuthScreens({super.key});
 
   @override
   AuthScreensState createState() => AuthScreensState();
@@ -100,16 +101,24 @@ class AuthScreensState extends State<AuthScreens> {
                   builder: (context, child) {
                     var e =
                         confirmCtrl.text.isNotEmpty && pwdCtrl.text.isNotEmpty;
-                    return ButtonUtil.build(
-                      text: 'Create Account',
-                      cta: e
-                          ? () => setState(() {
-                                debugPrint('Create');
-                                isLoading = true;
-                              })
-                          : null,
-                      bgColor: e ? Colors.deepPurpleAccent : null,
-                    ).ignoreCTaps(isLoading);
+                    return Row(
+                      children: [
+                        Expanded(
+                          child: ButtonUtil.build(
+                            text: 'Create Account',
+                            cta: e
+                                ? () => setState(() {
+                                      debugPrint('Create');
+                                      isLoading = true;
+                                    })
+                                : null,
+                            bgColor: e ? Colors.deepPurpleAccent : null,
+                          ).ignoreCTaps(isLoading),
+                        ),
+                        12.sbW,
+                        const BioMetrics(),
+                      ],
+                    );
                   },
                 ),
               ],

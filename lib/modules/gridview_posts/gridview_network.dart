@@ -3,7 +3,7 @@ import 'package:helper/constants/app_assets.dart';
 import 'package:helper/modules/gridview_posts/multi_images.dart';
 
 class GridViewNetwork extends StatefulWidget {
-  const GridViewNetwork({Key? key}) : super(key: key);
+  const GridViewNetwork({super.key});
 
   @override
   GridViewNetworkState createState() => GridViewNetworkState();

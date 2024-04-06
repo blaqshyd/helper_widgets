@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:helper/core/extensions/extensions.dart';
+import 'package:helper/core/extensions/index.dart';
 import 'package:helper/modules/custom_keyboard/numerical_keyboard.dart';
 import 'package:helper/modules/reset_timer_counter/otp_screen.dart';
 
 class ResetTimer extends StatefulWidget {
-  const ResetTimer({Key? key}) : super(key: key);
+  const ResetTimer({super.key});
 
   @override
   State<ResetTimer> createState() => _ResetTimerState();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GridViewMod extends StatelessWidget {
-  const GridViewMod({Key? key}) : super(key: key);
+  const GridViewMod({super.key});
 
   @override
   Widget build(BuildContext context) {

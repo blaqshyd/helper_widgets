@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/app_dialogs.dart';
-import 'package:helper/core/extensions/extensions.dart';
+import 'package:helper/core/extensions/index.dart';
 import 'package:helper/services/share_service.dart';
+import 'package:helper/shared/widgets/app_dialogs.dart';
 
 class CustomDialogs extends StatelessWidget {
-  const CustomDialogs({Key? key}) : super(key: key);
+  const CustomDialogs({super.key});
 
   @override
   Widget build(BuildContext context) {

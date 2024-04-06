@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/common.dart';
+import 'package:helper/shared/shared.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class CustomSearch extends StatefulWidget {
-  const CustomSearch({Key? key}) : super(key: key);
+  const CustomSearch({super.key});
 
   @override
   CustomSearchState createState() => CustomSearchState();

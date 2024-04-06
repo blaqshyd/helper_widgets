@@ -1,4 +1,4 @@
-class FirebaseExce {
+class FirebaseException {
   // Error Handling
   String getErrorString(String? errorCode) {
     switch (errorCode) {

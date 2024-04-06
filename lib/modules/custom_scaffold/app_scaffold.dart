@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/common.dart';
+import 'package:helper/shared/shared.dart';
 
 class AppScaffold extends StatelessWidget {
   final Widget body;

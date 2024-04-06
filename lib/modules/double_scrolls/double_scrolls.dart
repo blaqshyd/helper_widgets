@@ -3,7 +3,7 @@ import 'package:helper/constants/app_colors.dart';
 import 'package:helper/core/extensions/extensions_.dart';
 
 class DoubleScrolls extends StatelessWidget {
-  const DoubleScrolls({Key? key}) : super(key: key);
+  const DoubleScrolls({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class DoubleScrolls extends StatelessWidget {
 }
 
 class Horizontal extends StatelessWidget {
-  const Horizontal({Key? key}) : super(key: key);
+  const Horizontal({super.key});
 
   @override
   Widget build(BuildContext context) {

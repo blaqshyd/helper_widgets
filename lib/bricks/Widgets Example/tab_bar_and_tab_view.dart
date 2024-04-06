@@ -56,10 +56,10 @@ class TabBarAndTabViews extends StatefulWidget {
   const TabBarAndTabViews({super.key});
 
   @override
-  _TabBarAndTabViewsState createState() => _TabBarAndTabViewsState();
+  TabBarAndTabViewsState createState() => TabBarAndTabViewsState();
 }
 
-class _TabBarAndTabViewsState extends State<TabBarAndTabViews>
+class TabBarAndTabViewsState extends State<TabBarAndTabViews>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 

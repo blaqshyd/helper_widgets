@@ -49,12 +49,11 @@
 //   }
 // }
 
-
 import 'package:flutter/material.dart';
 import 'package:helper/core/core.dart';
 
 class FilterChipScreen extends StatefulWidget {
-  const FilterChipScreen({Key? key}) : super(key: key);
+  const FilterChipScreen({super.key});
 
   @override
   State<FilterChipScreen> createState() => _FilterChipScreenState();

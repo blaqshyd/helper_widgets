@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/common.dart';
+import 'package:helper/shared/shared.dart';
 import 'package:helper/core/extensions/extensions_.dart';
 import 'package:helper/modules/full_preview_image/image_preview_s.dart';
 import 'package:helper/modules/gridview_posts/multi_images.dart';

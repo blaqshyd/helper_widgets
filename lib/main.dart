@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:helper/common/common.dart';
+import 'package:helper/shared/shared.dart';
 import 'package:helper/configs/theme/dark_theme.dart';
 import 'package:helper/configs/theme/light_theme.dart';
-import 'package:helper/root.dart';
-import 'package:helper/services/cache_helper.dart';
+import 'package:helper/shared/root.dart';
+import 'package:helper/services/local/cache_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

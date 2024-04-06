@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:helper/common/common.dart';
+import 'package:helper/shared/shared.dart';
 
 class TabBarSCroll2 extends StatefulWidget {
-  const TabBarSCroll2({Key? key}) : super(key: key);
+  const TabBarSCroll2({super.key});
 
   @override
   TabBarSCroll2State createState() => TabBarSCroll2State();

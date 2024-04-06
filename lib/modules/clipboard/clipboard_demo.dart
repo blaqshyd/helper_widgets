@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/common.dart';
 import 'package:helper/core/extensions/extensions_.dart';
 import 'package:helper/services/clipboard_service.dart';
+import 'package:helper/services/local/cache_helper.dart';
+import 'package:helper/shared/shared.dart';
 
 class ClipboardDemo extends StatefulWidget {
-  const ClipboardDemo({Key? key}) : super(key: key);
+  const ClipboardDemo({super.key});
 
   @override
   State<ClipboardDemo> createState() => _ClipboardDemoState();
@@ -12,6 +13,11 @@ class ClipboardDemo extends StatefulWidget {
 
 class _ClipboardDemoState extends State<ClipboardDemo> {
   String? pastedText;
+
+  void get() {
+    final token = CacheHelper.getData('root');
+    (token).log();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +44,8 @@ class _ClipboardDemoState extends State<ClipboardDemo> {
                         await ClipboardService.copy(
                           AppAssets.dialog,
                         );
+
+                        get();
                       },
                     ),
                     24.sbH,

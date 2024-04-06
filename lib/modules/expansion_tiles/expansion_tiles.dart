@@ -5,7 +5,7 @@ final List<String> selectedValues1 = [];
 final List<String> selectedValues2 = [];
 
 class ExpansionTilesW extends StatefulWidget {
-  const ExpansionTilesW({Key? key}) : super(key: key);
+  const ExpansionTilesW({super.key});
 
   @override
   State<ExpansionTilesW> createState() => _ExpansionTilesWState();
@@ -181,13 +181,13 @@ class _ExpansionTilesWState extends State<ExpansionTilesW> {
 
 class ListTileContainer extends StatelessWidget {
   const ListTileContainer({
-    Key? key,
+    super.key,
     required this.title,
     required this.items,
     required this.selections,
     this.onSelect,
     this.rightIcon,
-  }) : super(key: key);
+  });
   final String title;
   final Widget? rightIcon;
   final List<String> items;

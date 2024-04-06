@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:helper/services/url_launch_service.dart';
 
 class AnylinkPrew extends StatefulWidget {
-  const AnylinkPrew({Key? key}) : super(key: key);
+  const AnylinkPrew({super.key});
 
   @override
   AnylinkPrewState createState() => AnylinkPrewState();

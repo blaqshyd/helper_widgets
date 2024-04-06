@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RawChipScreen extends StatefulWidget {
-  const RawChipScreen({Key? key}) : super(key: key);
+  const RawChipScreen({super.key});
 
   @override
   RawChipScreenState createState() => RawChipScreenState();

@@ -3,7 +3,7 @@ import 'package:helper/core/extensions/extensions_.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class DropdownBtn extends StatefulWidget {
-  const DropdownBtn({Key? key}) : super(key: key);
+  const DropdownBtn({super.key});
 
   @override
   DropdownBtnState createState() => DropdownBtnState();

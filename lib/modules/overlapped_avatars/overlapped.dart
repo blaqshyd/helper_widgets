@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/common.dart';
+import 'package:helper/shared/shared.dart';
 
 class Overlapped extends StatelessWidget {
-  Overlapped({Key? key}) : super(key: key);
+  Overlapped({super.key});
 
   final List<String> storyAvatar = [
     AppAssets.image,

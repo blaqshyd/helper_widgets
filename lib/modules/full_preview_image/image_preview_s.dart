@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/app_dialogs.dart';
-import 'package:helper/common/common.dart';
-import 'package:helper/core/extensions/extensions.dart';
+import 'package:helper/core/extensions/index.dart';
+import 'package:helper/shared/widgets/app_dialogs.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class ImagePreviewS extends StatelessWidget {
   final String image;
   const ImagePreviewS({
-    Key? key,
+    super.key,
     required this.image,
-  }) : super(key: key);
+  });
   @override
   Widget build(BuildContext context) {
     return Padding(

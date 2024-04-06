@@ -3,7 +3,7 @@ import 'package:helper/modules/insta_profile/insta_profile.dart';
 import 'package:helper/modules/leaderbord/leader_board.dart';
 
 class NavWithIndexed extends StatefulWidget {
-  const NavWithIndexed({Key? key}) : super(key: key);
+  const NavWithIndexed({super.key});
 
   @override
   State<NavWithIndexed> createState() => _NavWithIndexedState();

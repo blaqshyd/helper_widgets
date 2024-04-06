@@ -1,7 +1,13 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
 extension DateUtil on DateTime {
-  String get formatToDate {
-    return "$year-$month-$day";
-  }
+  String get asYyMmDd => '$this'.split(' ').first;
+  String get formatToDate => "$year-$month-$day";
+
+  String get toDatewithoutSlashes => DateFormat('dd MMM yyyy').format(this);
+  String get toDateWithFirstMonth => DateFormat('MMM dd yyyy').format(this);
+  String get toDateWithSlashes => DateFormat('dd/MM/yyyy').format(this);
 
   String get formatToTime {
     String minuteString = minute.toString().padLeft(2, '0');
@@ -36,4 +42,30 @@ extension DateUtil on DateTime {
       return "Just now";
     }
   }
+}
+
+extension DateFormatting on DateTime {
+  String toDatewithoutSlashes() {
+    final format = DateFormat('dd MMM yyyy');
+    return format.format(this);
+  }
+
+  String toDateWithFirstMonth() {
+    final format = DateFormat('MMM dd yyyy');
+    return format.format(this);
+  }
+
+  String toDateWithSlashes() {
+    final format = DateFormat('dd/MM/yyyy');
+    return format.format(this);
+  }
+}
+
+extension TimeOfDayPlus on TimeOfDay {
+  String get formattedWithPeriod =>
+      '${"$hourOfPeriod".padLeft(2, "0")}:${"$minute".padLeft(2, "0")} '
+      '${period.name.toUpperCase()}';
+
+  String get formatted =>
+      '${"$hour".padLeft(2, "0")}:${"$minute".padLeft(2, "0")}';
 }

@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:helper/services/file_picker_service.dart';
+import 'package:helper/services/local/file_picker_service.dart';
 
 class GridViewPick extends StatefulWidget {
-  const GridViewPick({Key? key}) : super(key: key);
+  const GridViewPick({super.key});
 
   @override
   GridViewPickState createState() => GridViewPickState();
@@ -14,9 +14,9 @@ class GridViewPickState extends State<GridViewPick> {
   final ValueNotifier<List<File>> _pickedFilesNotifier = ValueNotifier([]);
 
   void _pickImages() async {
-    List<File> pickedImages = await FilePickerService.pickImages();
+    List<File>? pickedImages = await FilePickerService.pickImages();
 
-    _pickedFilesNotifier.value = pickedImages;
+    _pickedFilesNotifier.value = pickedImages!;
   }
 
   Widget _buildImageWidget(File image) {
@@ -53,7 +53,7 @@ class GridViewPickState extends State<GridViewPick> {
                   color: Colors.black.withOpacity(0.5),
                   child: Center(
                     child: Text(
-                      '+${images.length - 4}',
+                      '+${images.length - 3}',
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 20,

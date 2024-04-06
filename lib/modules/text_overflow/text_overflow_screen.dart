@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:helper/core/extensions/extensions.dart';
+import 'package:helper/core/extensions/index.dart';
 
 import 'flexible_text.dart';
 
 class OverflowTextS extends StatelessWidget {
-  const OverflowTextS({Key? key}) : super(key: key);
+  const OverflowTextS({super.key});
 
   @override
   Widget build(BuildContext context) {

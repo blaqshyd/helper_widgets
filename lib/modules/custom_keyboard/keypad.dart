@@ -1,19 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:helper/common/common.dart';
-import 'package:helper/core/extensions/extensions_.dart';
+import 'package:helper/core/core.dart';
+import 'package:helper/shared/shared.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:local_auth/local_auth.dart';
 
 class Keypad extends StatefulWidget {
-  const Keypad({Key? key}) : super(key: key);
+  const Keypad({super.key});
 
   @override
   State<Keypad> createState() => _KeypadState();
 }
 
 class _KeypadState extends State<Keypad> {
-  final TextEditingController controller = TextEditingController();
+  String? authorized;
+  bool isAuthenticating = false;
+  bool authenticated = false;
+
+  late final TextEditingController _controller;
+  late final LocalAuthentication _auth;
+
+  @override
+  void initState() {
+    //* Request for permissions here
+    _auth = LocalAuthentication();
+    _controller = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  FutureVoid _authenticate() async {
+    try {
+      authenticated = await _auth.authenticate(
+        localizedReason: 'Let OS determine authentication method',
+        options: const AuthenticationOptions(
+          stickyAuth: true,
+        ),
+      );
+    } on PlatformException catch (e) {
+      (e).log();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,22 +56,21 @@ class _KeypadState extends State<Keypad> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            TextField(
-              controller: controller,
-            ),
+            TextField(controller: _controller),
             SizedBox(
                 height: MediaQuery.sizeOf(context).height * .45,
                 child: PinKeyboard(
-                  controller: controller,
+                  controller: _controller,
                   onChange: (p0) {
                     'key pressed'.log();
 
                     setState(() {
                       // p0 = controller.text;
-                      controller.text = p0;
+                      _controller.text = p0;
                     });
                   },
                   onBiometric: () {
+                    _authenticate();
                     'biometric pressed!!!'.log();
                   },
                 )),

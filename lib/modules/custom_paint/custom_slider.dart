@@ -16,8 +16,8 @@ class ExampleSlider extends StatefulWidget {
     this.primaryColor = Colors.indigo,
     this.showMinMaxText = true,
     this.minMaxTextStyle = const TextStyle(fontSize: 14),
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   ExampleSliderState createState() => ExampleSliderState();

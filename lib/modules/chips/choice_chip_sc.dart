@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helper/core/core.dart';
 
 class ChoiceChipScreen extends StatefulWidget {
-  const ChoiceChipScreen({Key? key}) : super(key: key);
+  const ChoiceChipScreen({super.key});
 
   @override
   ChoiceChipScreenState createState() => ChoiceChipScreenState();

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/common.dart';
+import 'package:helper/shared/shared.dart';
 
 class LeaderBoard extends StatelessWidget {
-  const LeaderBoard({Key? key}) : super(key: key);
+  const LeaderBoard({super.key});
 
   @override
   Widget build(BuildContext context) {

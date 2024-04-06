@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 
-class DioExceptionss implements Exception {
-  static late String message;
-  static fromdioException(DioException dioException) {
+class DioExceptions implements Exception {
+  late String message;
+  fromdioException(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.cancel:
         message = "Request to API server was cancelled";
@@ -35,24 +35,26 @@ class DioExceptionss implements Exception {
     }
   }
 
-  static String _handleError(int? statusCode, dynamic error) {
+  String _handleError(int? statusCode, dynamic error) {
     switch (statusCode) {
       case 400:
-        return error['message'];
+        return error['message'] ?? 'Bad request';
       case 401:
-        return 'Unauthorized';
+        return error['message'] ?? 'Unauthorized';
       case 403:
-        return error['message'];
+        return error['message'] ?? 'Forbidden';
       case 404:
         return error['message'];
       case 409:
         return error['message'];
-      case 500:
-        return 'Internal server error';
+      case 420:
+        return 'Session Expired. Please LogIn again';
       case 422:
         return error['message'];
+      case 500:
+        return error['message'] ?? 'Internal server error';
       case 502:
-        return 'Bad gateway';
+        return error['message'] ?? 'Bad gateway';
       default:
         return 'Oops something went wrong';
     }

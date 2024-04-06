@@ -1,13 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:helper/common/common.dart';
+import 'package:helper/shared/shared.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:timeline_tile_nic/timeline_tile.dart';
 
 import '../overlapped_avatars/overlapped_avatars.dart';
 
 class TimelineScreen extends StatelessWidget {
-  const TimelineScreen({Key? key}) : super(key: key);
+  const TimelineScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +33,10 @@ class TimelineWidget extends StatelessWidget {
   final bool isFirst;
   final bool isLast;
   const TimelineWidget({
-    Key? key,
+    super.key,
     required this.isFirst,
     required this.isLast,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class TimelineWidget extends StatelessWidget {
 }
 
 class TaskCard extends StatelessWidget {
-  const TaskCard({Key? key}) : super(key: key);
+  const TaskCard({super.key});
 
   @override
   Widget build(BuildContext context) {

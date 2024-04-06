@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 class TextFormats extends StatelessWidget {
-  const TextFormats({Key? key}) : super(key: key);
+  const TextFormats({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -35,9 +35,30 @@ extension StringExtension on String {
     return capitalize;
   }
 
+  bool get isValidPassword => length >= 8;
+
+  bool get isValidReferralCode => length == 6;
+
+  bool get isValidEmail =>
+      RegExp(r'^[\w\d+-]+(\.[\w\d+-]+)*@([\w\d-]+\.)+[a-zA-Z]{2,7}$')
+          .hasMatch(this);
+
+  bool get isValidUsername => RegExp(r'^[A-Za-z]{2,}$').hasMatch(this);
+
+  String get capitalized =>
+      length > 0 ? '${this[0].toUpperCase()}${substring(1)}' : this;
+
+  String get titleCased =>
+      split(RegExp(r' +')).map((part) => part.capitalized).join(' ');
+
+  String or(String other) => isEmpty ? other : this;
+
   Text txt({
     double? fontSize,
+    double? height,
     Color? color,
+    Color? decorationColour,
+    TextDecorationStyle? decorationStyle,
     FontWeight? fontWeight,
     String? fontFamily,
     FontStyle? fontStyle,
@@ -52,12 +73,16 @@ extension StringExtension on String {
       textAlign: textAlign,
       maxLines: maxLines,
       style: TextStyle(
-        fontSize: fontSize ?? 14,
-        color: color,
-        fontWeight: fontWeight,
-        fontFamily: fontFamily,
-        fontStyle: fontStyle,
+        fontSize: fontSize ?? 16,
+        decorationColor: decorationColour,
+        decorationStyle: decorationStyle,
         decoration: decoration,
+        fontFamily: fontFamily,
+        fontWeight: fontWeight,
+        fontStyle: fontStyle,
+        overflow: overflow,
+        height: height,
+        color: color,
       ),
     );
   }

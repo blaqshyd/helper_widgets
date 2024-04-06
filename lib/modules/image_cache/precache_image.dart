@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:helper/common/common.dart';
+import 'package:helper/shared/shared.dart';
 
 class PrecacheImage extends StatefulWidget {
-  const PrecacheImage({Key? key}) : super(key: key);
+  const PrecacheImage({super.key});
 
   @override
   PrecacheImageState createState() => PrecacheImageState();
