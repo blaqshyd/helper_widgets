@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helper/constants/app_assets.dart';
+import 'package:helper/shared/constants/app_assets.dart';
 import 'package:helper/modules/gridview_posts/multi_images.dart';
 
 class GridViewNetwork extends StatefulWidget {

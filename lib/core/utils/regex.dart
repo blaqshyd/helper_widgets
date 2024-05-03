@@ -1,9 +1,9 @@
 // ***  Regex Patterns ***
 
-// This pattern only takes special characters
+/// This pattern only takes special characters
 const specialChar = r'[!@#\$%^&*(),.?":{}|<>]';
 
-// This pattern only takes lowercase and digits
+/// This pattern only takes lowercase and digits
 const usernamePattern = r'^[a-z0-9_-]{3,15}$';
 
 const emojiPattern = r'[\u{1F600}-\u{1F64F}'
@@ -29,3 +29,4 @@ const emailPattern = r"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'"
     r'x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])';
 
 const emailPattern2 = r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$';
+const emailPattern3 = r'^[\w\d+-]+(\.[\w\d+-]+)*@([\w\d-]+\.)+[a-zA-Z]{2,7}$';

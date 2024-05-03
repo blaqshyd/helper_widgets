@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:helper/core/extensions/index.dart';
 import 'package:helper/core/utils/validators.dart';
-import 'package:helper/core/widgets/biometrics.dart';
-import 'package:helper/shared/widgets/custom_textf.dart';
+import 'package:helper/shared/screens/biometrics.dart';
 import 'package:helper/shared/shared.dart';
+import 'package:helper/shared/widgets/app_textfield.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class AuthScreens extends StatefulWidget {
@@ -58,19 +58,19 @@ class AuthScreensState extends State<AuthScreens> {
                 Text('Sign Up',
                     style: Theme.of(context).textTheme.displaySmall),
                 34.sbH,
-                CustomTextf(
+                AppTextField(
                   hintText: 'Enter your email address',
                   controller: emailCtrl,
                   validator: (_) => AppValidator.email(emailCtrl.text),
                 ),
                 12.sbH,
-                CustomTextf(
+                AppTextField(
                   hintText: 'Enter your username',
                   controller: unameCtrl,
                   validator: (_) => AppValidator.username(unameCtrl.text),
                 ),
                 12.sbH,
-                CustomTextf(
+                AppTextField(
                   hintText: 'Enter your password',
                   controller: pwdCtrl,
                   validator: (_) => AppValidator.password(pwdCtrl.text),
@@ -85,7 +85,7 @@ class AuthScreensState extends State<AuthScreens> {
                   ),
                 ),
                 12.sbH,
-                CustomTextf(
+                AppTextField(
                   hintText: 'Confirm password',
                   controller: confirmCtrl,
                   obscureText: !AppValidator.isPwdVisible,

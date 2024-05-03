@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:helper/core/configs/theme/app_text_theme.dart';
+import 'package:helper/core/configs/theme/app_theme_data.dart';
+
+const designHeight = 375;
+const designWidth = 725;
 
 extension BuildContextExtensions on BuildContext {
   ThemeData get theme => Theme.of(this);
 
   TextTheme get textTheme => theme.textTheme;
+
+  AppThemeData get appTheme => theme.extension<AppThemeData>()!;
+
+  AppTextTheme get appTextTheme => theme.extension<AppTextTheme>()!;
+
+  // Palette? get palette => theme.extension<Palette>();
 
   ColorScheme get colorScheme => theme.colorScheme;
 
@@ -43,8 +54,8 @@ extension BuildContextExtensions on BuildContext {
   double get screenHeight => MediaQuery.sizeOf(this).height;
   double get screenWidth => MediaQuery.sizeOf(this).width;
 
-  // double dy(double value) => screenHeight * value / designHeight;
-  // double dx(double value) => screenWidth * value / designWidth;
+  double dy(double value) => screenHeight * value / designHeight;
+  double dx(double value) => screenWidth * value / designWidth;
 
   void unfocus() => currentFocus.unfocus();
 

@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:helper/core/client/error_handler.dart';
 import 'package:helper/core/core.dart';
 import 'package:helper/shared/providers/firebase_provider.dart';
 

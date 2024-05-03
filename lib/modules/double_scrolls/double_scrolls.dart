@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helper/constants/app_colors.dart';
+import 'package:helper/shared/constants/app_colors.dart';
 import 'package:helper/core/extensions/extensions_.dart';
 
 class DoubleScrolls extends StatelessWidget {

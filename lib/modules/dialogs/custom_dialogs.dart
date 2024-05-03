@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:helper/core/extensions/index.dart';
 import 'package:helper/services/share_service.dart';
-import 'package:helper/shared/widgets/app_dialogs.dart';
+import 'package:helper/shared/widgets/app_dialog.dart';
+import 'package:helper/shared/widgets/app_toast.dart';
 
 class CustomDialogs extends StatelessWidget {
   const CustomDialogs({super.key});
@@ -14,61 +15,58 @@ class CustomDialogs extends StatelessWidget {
         child: Wrap(
           children: [
             ElevatedButton(
-              onPressed: () => Dialogs.normalDialog(context),
+              onPressed: () => AppDialog.normalDialog(context),
               child: const Text('Normal Dialog'),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.customDialog(context),
+              onPressed: () => AppDialog.customDialog(context),
               child: const Text('Custom Dialog'),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.alertDialog(context),
+              onPressed: () => AppDialog.alertDialog(context),
               child: Text('Alert Dialog', style: context.textTheme.bodySmall),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.bottomSheet(context),
+              onPressed: () => AppDialog.bottomSheet(context),
               child: const Text('Bottom Sheet'),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.openBottomSheet(context),
+              onPressed: () => AppDialog.openBottomSheet(context),
               child: const Text('Open Bottom Sheet'),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.modalSheet(context),
+              onPressed: () => AppDialog.modalSheet(context),
               child: const Text('Modal Sheet'),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.loader(context),
+              onPressed: () => AppDialog.loader(context),
               child: const Text('Loader'),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.showSnackbar(
-                context,
-                message: 'Hello Snack',
-              ),
+              onPressed: () => AppDialog.showBar(context, 'Goodyyy'),
               child: const Text('Normal Snack'),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.successToast(context),
+              onPressed: () => AppToast.success(context),
               child: const Text('Toast Snack - Success'),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.errorToast(context),
+              onPressed: () => AppToast.error(context),
               child: const Text('Toast Snack - Error'),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.infoToast(context),
+              onPressed: () => AppToast.info(context),
               child: const Text('Toast Snack - Info'),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.successSnack(
+              onPressed: () => AppDialog.success(
                 context,
                 message: 'Successful',
               ),
               child: const Text('Success Snack'),
             ),
             ElevatedButton(
-              onPressed: () => Dialogs.errorSnack(
+              onPressed: () => AppDialog.error(
                 context,
                 message: 'Error',
               ),
