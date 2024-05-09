@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:helper/core/extensions/num_ext.dart';
 import 'package:helper/shared/shared.dart';
-import 'package:helper/core/extensions/extensions_.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});

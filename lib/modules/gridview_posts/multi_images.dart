@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helper/services/cache_image.dart';
+import 'package:helper/services/local/cache_image.dart';
 
 class MultiImages extends StatelessWidget {
   const MultiImages({

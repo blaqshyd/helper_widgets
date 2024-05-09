@@ -1,4 +1,4 @@
-import 'package:helper/core/extensions/index.dart';
+import 'package:helper/core/extensions/log_extension.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CacheHelper {
@@ -6,7 +6,7 @@ class CacheHelper {
 
   static init() async {
     prefs = await SharedPreferences.getInstance();
-    'Cache Init'.log();
+    'SharedPrefs Init'.log();
   }
 
   static Future<bool> saveData({

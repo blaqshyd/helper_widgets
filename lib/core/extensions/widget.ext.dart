@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import "package:flutter_animate/flutter_animate.dart";
 
 extension DismissKeyboard on Widget {
-  void dismissKeyboard() => FocusManager.instance.primaryFocus?.unfocus();
+   dismissKeyboard() => FocusManager.instance.primaryFocus?.unfocus();
 }
+
+/// Calls a .dismissKeyboard on a [Widget]
+// extension DismissKeyboardX on Widget {
+//   void get dismissKeyboard => FocusManager.instance.primaryFocus?.unfocus();
+// }
 
 extension WidgetAnimation on Widget {
   Animate fadeInFromTop({

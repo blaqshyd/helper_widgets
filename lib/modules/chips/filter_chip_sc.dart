@@ -50,7 +50,7 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:helper/core/core.dart';
+import 'package:helper/core/index.dart';
 
 class FilterChipScreen extends StatefulWidget {
   const FilterChipScreen({super.key});

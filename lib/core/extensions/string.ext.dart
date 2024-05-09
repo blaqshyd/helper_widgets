@@ -41,13 +41,11 @@ extension StringExtension on String {
     return capitalize;
   }
 
-  /// or
-  /// * Return a default string if the intial string is empty
+  /// Return a default string if the intial string is empty
   ///
   String or(String other) => isEmpty ? other : this;
 
-  /// take
-  /// * Return only specified chars of length
+  ///  Return only specified chars of length
   ///
   String take(int chars) => substring(0, chars.clamp(0, length));
 
@@ -66,9 +64,9 @@ extension StringExtension on String {
       split(RegExp(r' +')).map((part) => part.capitalized).join(' ');
 
   String? get camelCase => toBeginningOfSentenceCase(this);
-  String? get trimToken => contains(":") ? split(":")[1].trim() : this;
-  String? get trimSpaces => replaceAll(" ", "");
-  String? get removeSpacesAndLower => replaceAll(' ', '').toLowerCase();
+  String get trimToken => contains(":") ? split(":")[1].trim() : this;
+  String get trimSpaces => replaceAll(" ", "");
+  String get removeSpacesAndLower => replaceAll(' ', '').toLowerCase();
 
   String get toTitleCase => replaceAll(RegExp(' +'), ' ')
       .split(' ')
@@ -117,7 +115,7 @@ extension ImagePath on String {
 }
 
 extension VectorPath on String {
-  String get svg => 'assets/vectors/$this.svg';
+  String get svg => 'assets/svgs/$this.svg';
   String get iconSvg => 'assets/icons/$this.svg';
   String get iconImg => 'assets/icons/$this.png';
 }

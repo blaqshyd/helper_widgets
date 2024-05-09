@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:helper/core/core.dart';
+import 'package:helper/core/extensions/int_ext.dart';
+import 'package:helper/core/extensions/num_ext.dart';
 import 'package:helper/core/extensions/widget.ext.dart';
-import 'package:helper/modules/expansion_tiles/expansion_tiles.dart';
-import 'package:helper/shared/widgets/triple_trail.dart';
+import 'package:helper/core/index.dart';
 
 import '../widgets/app_scaffold.dart';
-import '../widgets/dot_indicator.dart';
 
 class TestScreen extends StatefulWidget {
   const TestScreen({super.key});
@@ -21,7 +20,7 @@ class TestScreenState extends State<TestScreen> {
     final id = generateRandomId();
     return AppScaffold(
       title: const Text('Test Screen'),
-      // padding: EdgeInsets.zero,
+      padding: EdgeInsets.zero,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -41,27 +40,22 @@ class TestScreenState extends State<TestScreen> {
               ),
             ),
           ).fadeIn(),
-          'assets/oval_red.png'.imgAsset(h: 120).fadeInFromBottom(),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                4,
-                (index) => DotIndicator(
-                  currentIndex: 1,
-                  index: index,
-                  activeColor: color,
-                  inactiveColor: AppColor.radioActiveColor,
-                ),
-              ),
-            ),
+          'assets/oval_red.png'.imgAsset(h: 120),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text(12345.formatAmt),
           ),
-          const TripleTrail(
-            leading: BackButton(),
-            middle: Text('Home'),
-            trailing: ActionChip(label: Text('Search')),
-          )
+          const TextField(),
+          ElevatedButton.icon(
+            onPressed: () {},
+            icon: const Icon(Icons.add),
+            label: Text(100000.asCurrency),
+          ),
+          ElevatedButton.icon(
+            onPressed: () {},
+            icon: const Icon(Icons.add),
+            label: Text('Sign Up '.trimSpaces),
+          ).dismissKeyboard(),
         ],
       ),
     );

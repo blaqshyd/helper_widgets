@@ -16,4 +16,8 @@ extension RouterContext on BuildContext {
   pushAndRemoveUntil(MaterialPageRoute routeName, {Object? args}) {
     Navigator.of(this).pushAndRemoveUntil(routeName, (route) => false);
   }
+
+  pop() {
+    Navigator.of(this).pop();
+  }
 }

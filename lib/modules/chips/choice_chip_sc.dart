@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helper/core/core.dart';
+import 'package:helper/core/index.dart';
 
 class ChoiceChipScreen extends StatefulWidget {
   const ChoiceChipScreen({super.key});

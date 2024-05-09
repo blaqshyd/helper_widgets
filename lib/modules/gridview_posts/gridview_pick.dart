@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:helper/services/local/file_picker_service.dart';
+import 'package:helper/services/local/file_picker.dart';
 
 class GridViewPick extends StatefulWidget {
   const GridViewPick({super.key});
@@ -21,7 +21,7 @@ class GridViewPickState extends State<GridViewPick> {
 
   Widget _buildImageWidget(File image) {
     return Container(
-      height: 240,
+      // height: 240,
       width: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -85,7 +85,6 @@ class GridViewPickState extends State<GridViewPick> {
               valueListenable: _pickedFilesNotifier,
               builder: (context, pickedFiles, _) {
                 if (pickedFiles.isEmpty) {
-                  // return const SizedBox.shrink();
                   return Container(
                     height: 240,
                     width: double.infinity,

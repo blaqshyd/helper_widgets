@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:helper/core/core.dart';
+import 'package:helper/core/extensions/log_extension.dart';
+import 'package:helper/core/index.dart';
 import 'package:helper/shared/shared.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:local_auth/local_auth.dart';
@@ -45,7 +46,7 @@ class _KeypadState extends State<Keypad> {
         ),
       );
     } on PlatformException catch (e) {
-      (e).log();
+      throw Exception(e);
     }
   }
 

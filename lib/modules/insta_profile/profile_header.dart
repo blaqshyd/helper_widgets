@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:helper/core/extensions/num_ext.dart';
+import 'package:helper/services/local/file_picker.dart';
 import 'package:helper/shared/shared.dart';
-import 'package:helper/core/extensions/extensions_.dart';
-import 'package:helper/services/local/file_picker_service.dart';
 
 class ProfileHeader extends StatefulWidget {
   const ProfileHeader({
@@ -23,7 +23,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
       setState(() {
         image = file;
       });
-      image!.log();
+      image!;
     }
   }
 

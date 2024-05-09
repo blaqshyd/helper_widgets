@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:helper/core/extensions/num_ext.dart';
 import 'package:helper/shared/shared.dart';
-import 'package:helper/core/extensions/extensions_.dart';
-import 'package:helper/services/cache_image.dart';
+import 'package:helper/services/local/cache_image.dart';
 
 class ImagePreview extends StatelessWidget {
   const ImagePreview({

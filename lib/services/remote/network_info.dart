@@ -11,15 +11,12 @@ class NetworkInfoImpl extends NetworkInfo {
 
   @override
   Future<bool> get isConnected async {
-    ConnectivityResult result = await connectivity.checkConnectivity();
-    if (result == ConnectivityResult.mobile ||
-        result == ConnectivityResult.wifi) {
+    List<ConnectivityResult> result =
+        await connectivity.onConnectivityChanged.first;
+    if (result.isNotEmpty) {
       return true;
     } else {
       return false;
     }
   }
 }
-
-
-

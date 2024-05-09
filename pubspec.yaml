@@ -1,52 +1,65 @@
 name: helper
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.2.5 <4.0.0'
+  sdk: ">=3.2.5 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  shared_preferences: ^2.2.1
-  dio: ^5.3.3
-  file_picker: ^6.1.1
+  shared_preferences: ^2.2.3
+  dio: ^5.4.3
+  file_picker: ^6.2.1
   flutter_secure_storage: ^9.0.0
-  firebase_storage: ^11.2.8
-  flutter_riverpod: ^2.4.3
+  firebase_storage: ^11.7.4
+  flutter_riverpod: ^2.5.1
   timeline_tile_nic: ^2.0.1
   table_calendar: ^3.0.9
   iconsax_flutter: ^1.0.0
-  cached_network_image: ^3.3.0
-  share_plus: ^7.2.2
+  cached_network_image: ^3.3.1
+  share_plus: ^9.0.0
   image_picker: ^1.0.4
   flutter_screenutil: ^5.9.0
-  google_fonts: ^6.1.0
+  google_fonts: ^6.2.1
   intl: ^0.18.1
   url_launcher: ^6.2.1
-  my_formfield: ^0.0.6
-  toastification: ^1.1.0
+  my_formfield: ^0.0.8
+  toastification: ^2.0.0
   flutter_spinkit: ^5.2.0
   flutter_linkify: ^6.0.0
-  any_link_preview: ^3.0.1
+  any_link_preview: ^3.0.2
   flex_color_scheme: ^7.3.1
-  linkify:
-  local_auth: ^2.1.8
-  connectivity_plus: ^5.0.2
-  firebase_auth: ^4.18.0
-  cloud_firestore: ^4.15.10
+  linkify: null
+  local_auth: ^2.2.0
+  connectivity_plus: ^6.0.3
+  firebase_auth: ^4.19.4
+  cloud_firestore: ^4.17.2
   flutter_animate: ^4.5.0
   flutter_contacts: ^1.1.7+1
+  flutter_native_splash: ^2.4.0
+  google_sign_in: ^6.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
+  flutter_lints: ^3.0.2
+
+flutter_native_splash:
+  color: "#042a49"
+  color_dark: "#042a49"
+  image: assets/splash.png
+  image_dark: assets/splash.png
+
+  android_12:
+    color: "#042a49"
+    color_dark: "#042a49"
+    image: assets/splash.png
+    image_dark: assets/splash.png
+
 flutter:
   uses-material-design: true
   assets:
     - assets/
-
-

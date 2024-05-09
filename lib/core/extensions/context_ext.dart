@@ -3,9 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:helper/core/configs/theme/app_text_theme.dart';
 import 'package:helper/core/configs/theme/app_theme_data.dart';
 
-const designHeight = 375;
-const designWidth = 725;
-
 extension BuildContextExtensions on BuildContext {
   ThemeData get theme => Theme.of(this);
 
@@ -54,29 +51,10 @@ extension BuildContextExtensions on BuildContext {
   double get screenHeight => MediaQuery.sizeOf(this).height;
   double get screenWidth => MediaQuery.sizeOf(this).width;
 
-  double dy(double value) => screenHeight * value / designHeight;
-  double dx(double value) => screenWidth * value / designWidth;
+  // double dy(double value) => screenHeight * value / designHeight;
+  // double dx(double value) => screenWidth * value / designWidth;
 
   void unfocus() => currentFocus.unfocus();
 
   // AppLocalizations get l10n => AppLocalizations.of(this)!;
-
-  Future<T?> showBottomSheet<T>({
-    required WidgetBuilder builder,
-    double? borderRadius,
-    bool? isScrolled,
-  }) {
-    return showModalBottomSheet<T>(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(borderRadius ?? 40.0),
-        ),
-      ),
-      backgroundColor: theme.scaffoldBackgroundColor,
-      isScrollControlled: isScrolled ?? false,
-      useRootNavigator: true,
-      builder: builder,
-      context: this,
-    );
-  }
 }

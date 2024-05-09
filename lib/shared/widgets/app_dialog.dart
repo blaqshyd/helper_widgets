@@ -1,22 +1,23 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:helper/core/index.dart';
+import 'package:helper/shared/shared.dart';
 
 class AppDialog {
-  AppDialog._();
+  AppDialog();
   //! Dialog with header and default
 
-  /// This is supposed to explain what this is doing
-  static Future normalDialog(
-    BuildContext context, {
+  AppDialog.normalDialog({
     String? dialogText,
     String? dialogHeader,
     String? btnText,
+    Color? barrierColor,
     VoidCallback? onTap,
   }) {
-    return showDialog(
-      // barrierColor: Colors.grey,
+    showDialog(
+      barrierColor: barrierColor ?? Colors.grey,
       barrierDismissible: kDebugMode,
-      context: context,
+      context: navigatorKey.currentContext!,
       builder: (context) => SimpleDialog(
         title: Text(dialogHeader ?? 'Dialog Header'),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -50,21 +51,22 @@ class AppDialog {
       ),
     );
   }
-
 //! custom Dailog
-  static customDialog(
-    BuildContext context, {
+  AppDialog.customDialog({
     String? dialogText,
     String? btnText,
     Color? btnColor,
     Color? btnTextColor,
     VoidCallback? onTap,
+    bool? barrierDismissible,
   }) {
-    return showDialog(
-      barrierDismissible: kDebugMode,
-      context: context,
+    showDialog(
+      barrierDismissible: barrierDismissible ?? kDebugMode,
+      context: navigatorKey.currentContext!,
       builder: (context) => Dialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
@@ -98,8 +100,11 @@ class AppDialog {
 
   //* Empty Dialog
 
-  static empty(BuildContext ctx, {required Widget child, ShapeBorder? shape}) {
-    return Dialog(
+  AppDialog.empty({
+    required Widget child,
+    ShapeBorder? shape,
+  }) {
+    Dialog(
       shape: shape,
       child: child,
     );
@@ -107,18 +112,18 @@ class AppDialog {
 
   //! Alert Dialog
 
-  static alertDialog(BuildContext context, {String? header}) {
+  static alertDialog({String? header, String? message}) {
     return showDialog(
-      context: context,
+      context: navigatorKey.currentContext!,
       builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        content: const Column(
+        content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             // CircleAvatar(radius: 30),
-            Text('Alert Dialog'),
-            SizedBox(height: 30),
-            Text('This is supposed to be a text'),
+            Text(header ?? 'Hader'),
+            const SizedBox(height: 30),
+            Text(message ?? 'This is supposed to be a text'),
           ],
         ),
         actions: [
@@ -127,7 +132,7 @@ class AppDialog {
             child: const Text('Yes'),
           ),
           OutlinedButton(
-            onPressed: () {},
+            onPressed: () => context.navigator.pop(),
             child: const Text('No'),
           ),
         ],
@@ -135,13 +140,12 @@ class AppDialog {
     );
   }
 
-  static Future modalSheet(
-    BuildContext context, {
+  static Future modalSheet({
     Widget? child,
     List<Widget>? children,
   }) {
     return showModalBottomSheet(
-      context: context,
+      context: navigatorKey.currentContext!,
       isDismissible: false,
       showDragHandle: true,
       isScrollControlled: true,
@@ -166,19 +170,19 @@ class AppDialog {
     );
   }
 
-  static Future openBottomSheet(
-    BuildContext context, {
+  AppDialog.openBottomSheet({
     List<Widget>? children,
     Widget? child,
   }) {
-    return showModalBottomSheet(
-      context: context,
+    showModalBottomSheet(
+      context: navigatorKey.currentContext!,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) {
         return Padding(
-          padding:
-              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             mainAxisSize: MainAxisSize.min,
@@ -186,16 +190,16 @@ class AppDialog {
             children: [
               Container(
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  // color: Colors.white,
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
                 ),
                 padding: const EdgeInsets.fromLTRB(20, 12, 20, 60),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Row(),
                     Container(
                       width: 130,
                       height: 3.49,
@@ -218,45 +222,18 @@ class AppDialog {
     );
   }
 
-  static Future bottomSheet(
-    BuildContext context, {
-    List<Widget>? children,
-    Widget? child,
-  }) {
-    return showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      showDragHandle: true,
-      builder: (BuildContext context) {
-        return Wrap(
-          children: <Widget>[
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  // Add more widgets as needed
-                  if (children != null) ...children,
-                  if (child != null) child,
-                ],
-              ),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   /// Can take a child as a Widget e.g [FlutterSpinkit]
-  static void loader(
-    BuildContext context, {
+  ///
+  /// bgColor for the loader's background color
+  ///
+  /// color for the loader's default spinner
+  AppDialog.loader({
     Color? bgColor,
     Color? loaderColor,
     Widget? child,
   }) {
     showDialog(
-      context: context,
+      context: navigatorKey.currentContext!,
       barrierDismissible: kDebugMode,
       builder: (context) => Center(
         child: child ??
@@ -280,70 +257,51 @@ class AppDialog {
     );
   }
 
-  static void defaultSnack(
-    context, {
-    required String message,
+  static Future<int?> bottomSheet({
+    List<Widget>? children,
+    Widget? child,
   }) {
-    SnackBar snackBar = SnackBar(
-      behavior: SnackBarBehavior.floating,
-      content: Row(
-        children: [
-          const Icon(Icons.error),
-          const SizedBox(width: 8),
-          Flexible(
-            child: Text(message),
-          ),
-        ],
-      ),
-      padding: const EdgeInsets.all(16),
-      margin: EdgeInsets.only(
-        bottom: MediaQuery.sizeOf(context).height - 180,
-        left: 30,
-        right: 30,
-      ),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
-
-  static void showBar(BuildContext context, String? text) {
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(
-        SnackBar(
-          content: Text(text ?? 'Default Snackbar Text'),
-          elevation: 2,
-          shape: const StadiumBorder(),
-          behavior: SnackBarBehavior.floating,
-        ),
-      );
-  }
-
-  static void error(
-    BuildContext context, {
-    required String message,
-  }) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        behavior: SnackBarBehavior.floating,
-        content: Text(message),
-        backgroundColor: Colors.red,
-      ),
+    return showModalBottomSheet<int>(
+      context: navigatorKey.currentContext!,
+      isScrollControlled: true,
+      showDragHandle: true,
+      builder: (BuildContext context) {
+        return Wrap(
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  // Add more widgets as needed
+                  if (children != null) ...children,
+                  if (child != null) child,
+                ],
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 
-  static void success(
-    BuildContext context, {
-    required String message,
+  Future<T?> showBottomSheet<T>({
+    required WidgetBuilder builder,
+    double? borderRadius,
+    bool? isScrolled,
   }) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        behavior: SnackBarBehavior.floating,
-        content: Text(
-          message,
-          style: const TextStyle(color: Colors.white),
+    return showModalBottomSheet<T>(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(borderRadius ?? 40.0),
         ),
-        backgroundColor: Colors.green,
       ),
+      backgroundColor: navigatorKey.currentContext!.colorScheme.background,
+      isScrollControlled: isScrolled ?? false,
+      useRootNavigator: true,
+      builder: builder,
+      context: navigatorKey.currentContext!,
     );
   }
 }

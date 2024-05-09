@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:helper/core/extensions/extensions_.dart';
-import 'package:helper/services/clipboard_service.dart';
+import 'package:helper/core/extensions/num_ext.dart';
 import 'package:helper/services/local/cache_helper.dart';
+import 'package:helper/services/local/clipboard_service.dart';
 import 'package:helper/shared/shared.dart';
 
 class ClipboardDemo extends StatefulWidget {

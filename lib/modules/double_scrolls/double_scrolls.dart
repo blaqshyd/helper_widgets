@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:helper/core/extensions/num_ext.dart';
 import 'package:helper/shared/constants/app_colors.dart';
-import 'package:helper/core/extensions/extensions_.dart';
 
 class DoubleScrolls extends StatelessWidget {
   const DoubleScrolls({super.key});

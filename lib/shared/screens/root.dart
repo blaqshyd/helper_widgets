@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:helper/core/extensions/index.dart';
 import 'package:helper/modules/animations/hero_animation.dart';
@@ -58,16 +59,16 @@ class Root extends StatefulWidget {
 class _RootState extends State<Root> {
   @override
   void initState() {
-    CacheHelper.saveData(key: 'root', value: 'hello world-2');
-    // LocalStorage.save('hello world-3');
+    CacheHelper.saveData(key: 'root', value: 'hello world-3');
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    // final token = LocalStorage.read();
-    // token.toString().log();
+    final token1 = CacheHelper.getData('root');
+
+    if (kDebugMode) print(token1);
     return AppScaffold(
       hasDrawer: true,
       drawer: const AppDrawer(

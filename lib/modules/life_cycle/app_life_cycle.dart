@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:helper/core/core.dart';
 
 class AppLifeCycle extends StatefulWidget {
   const AppLifeCycle({super.key});
@@ -15,14 +14,14 @@ class AppLifeCycleState extends State<AppLifeCycle> {
   void initState() {
     super.initState();
     _listener = AppLifecycleListener(
-      onDetach: () => ('Detached').log(),
-      onHide: () => ('Hidden').log(),
-      onInactive: () => ('Inactive').log(),
-      onRestart: () => ('Restart').log(),
-      onResume: () => ('Resume').log(),
-      onStateChange: (value) => (value).log(),
-      onShow: () => ('Show').log(),
-      onPause: () => ('Pause').log(),
+      onDetach: () => ('Detached'),
+      onHide: () => ('Hidden'),
+      onInactive: () => ('Inactive'),
+      onRestart: () => ('Restart'),
+      onResume: () => ('Resume'),
+      onStateChange: (value) => (value),
+      onShow: () => ('Show'),
+      onPause: () => ('Pause'),
     );
     setState(() {
       _listener;

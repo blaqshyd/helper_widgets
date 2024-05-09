@@ -1,4 +1,5 @@
-import 'package:helper/core/core.dart';
+import 'package:helper/core/extensions/log_extension.dart';
+import 'package:helper/core/index.dart';
 
 class LoginProvider extends BaseProvider<AuthState> {
   LoginProvider() : super(InitialState());

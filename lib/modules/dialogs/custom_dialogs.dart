@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helper/core/extensions/index.dart';
-import 'package:helper/services/share_service.dart';
+import 'package:helper/services/local/share_service.dart';
 import 'package:helper/shared/widgets/app_dialog.dart';
 import 'package:helper/shared/widgets/app_toast.dart';
 
@@ -15,60 +15,60 @@ class CustomDialogs extends StatelessWidget {
         child: Wrap(
           children: [
             ElevatedButton(
-              onPressed: () => AppDialog.normalDialog(context),
+              onPressed: () => AppDialog.normalDialog(),
               child: const Text('Normal Dialog'),
             ),
             ElevatedButton(
-              onPressed: () => AppDialog.customDialog(context),
+              onPressed: () => AppDialog.customDialog(),
               child: const Text('Custom Dialog'),
             ),
             ElevatedButton(
-              onPressed: () => AppDialog.alertDialog(context),
+              onPressed: () => AppDialog.alertDialog(),
               child: Text('Alert Dialog', style: context.textTheme.bodySmall),
             ),
             ElevatedButton(
-              onPressed: () => AppDialog.bottomSheet(context),
+              onPressed: () => AppDialog.bottomSheet(),
               child: const Text('Bottom Sheet'),
             ),
             ElevatedButton(
-              onPressed: () => AppDialog.openBottomSheet(context),
+              onPressed: () => AppDialog.openBottomSheet(),
               child: const Text('Open Bottom Sheet'),
             ),
             ElevatedButton(
-              onPressed: () => AppDialog.modalSheet(context),
+              onPressed: () => AppDialog.modalSheet(),
               child: const Text('Modal Sheet'),
             ),
             ElevatedButton(
-              onPressed: () => AppDialog.loader(context),
+              onPressed: () => AppDialog.loader(),
               child: const Text('Loader'),
             ),
             ElevatedButton(
-              onPressed: () => AppDialog.showBar(context, 'Goodyyy'),
-              child: const Text('Normal Snack'),
-            ),
-            ElevatedButton(
-              onPressed: () => AppToast.success(context),
+              onPressed: () => AppToast.success('Success'),
               child: const Text('Toast Snack - Success'),
             ),
             ElevatedButton(
-              onPressed: () => AppToast.error(context),
+              onPressed: () => AppToast.error('Error'),
               child: const Text('Toast Snack - Error'),
             ),
             ElevatedButton(
-              onPressed: () => AppToast.info(context),
+              onPressed: () => AppToast.info('Info'),
               child: const Text('Toast Snack - Info'),
             ),
             ElevatedButton(
-              onPressed: () => AppDialog.success(
-                context,
-                message: 'Successful',
+              onPressed: () => AppToast.custom('Custom'),
+              child: const Text('Toast Snack - Custom'),
+            ),
+            ElevatedButton(
+              onPressed: () => AppToast.defaultSnack(
+                'The request completed successfully and your data fetched.',
+                isSuccess: true,
               ),
               child: const Text('Success Snack'),
             ),
             ElevatedButton(
-              onPressed: () => AppDialog.error(
-                context,
-                message: 'Error',
+              onPressed: () => AppToast.defaultSnack(
+                'The request failed due to network problems.',
+                // isSuccess: false,
               ),
               child: const Text('Error Snack'),
             ),

@@ -1,5 +1,87 @@
 import 'package:flutter/material.dart';
 import 'package:helper/core/extensions/index.dart';
+import 'package:helper/core/extensions/num_ext.dart';
+import 'package:helper/core/extensions/route_extension.dart';
+import 'package:helper/shared/widgets/triple_trail.dart';
+
+class TabBarAndTabViews extends StatefulWidget {
+  const TabBarAndTabViews({super.key});
+
+  @override
+  TabBarAndTabViewsState createState() => TabBarAndTabViewsState();
+}
+
+class TabBarAndTabViewsState extends State<TabBarAndTabViews>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: tabPairs.length, vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _tabController.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            children: [
+              TripleTrail(
+                leading: IconButton.filledTonal(
+                  onPressed: () => context.pop(),
+                  icon: const Icon(Icons.arrow_back),
+                ),
+                middle: const Text(
+                  'Categories',
+                  style: TextStyle(fontSize: 28),
+                ),
+                trailing: IconButton.filledTonal(
+                  onPressed: () {},
+                  icon: const Icon(Icons.menu),
+                ),
+              ),
+              24.sbH,
+              Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: TabBar(
+                  controller: _tabController,
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicator: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.0),
+                    color: const Color(0xFFFF8527),
+                  ),
+                  labelColor: Colors.white,
+                  unselectedLabelColor: Colors.black,
+                  tabs: tabPairs.map((tabPair) => tabPair.tab).toList(),
+                ),
+              ),
+              45.sbH,
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: tabPairs.map((tabPair) => tabPair.view).toList(),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 class TabPair {
   final Tab tab;
@@ -40,67 +122,3 @@ List<TabPair> tabPairs = [
     ),
   )
 ];
-
-class TabBarAndTabViews extends StatefulWidget {
-  const TabBarAndTabViews({super.key});
-
-  @override
-  TabBarAndTabViewsState createState() => TabBarAndTabViewsState();
-}
-
-class TabBarAndTabViewsState extends State<TabBarAndTabViews>
-    with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    _tabController = TabController(length: tabPairs.length, vsync: this);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _tabController.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: [
-              Container(
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
-                  borderRadius: BorderRadius.circular(12.0),
-                ),
-                child: TabBar(
-                  controller: _tabController,
-                  indicatorSize: TabBarIndicatorSize.tab,
-                  indicator: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.0),
-                    color: const Color(0xFFFF8527),
-                  ),
-                  labelColor: Colors.white,
-                  unselectedLabelColor: Colors.black,
-                  tabs: tabPairs.map((tabPair) => tabPair.tab).toList(),
-                ),
-              ),
-              45.sbH,
-              Expanded(
-                child: TabBarView(
-                  controller: _tabController,
-                  children: tabPairs.map((tabPair) => tabPair.view).toList(),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
