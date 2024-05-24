@@ -1,2 +1,0 @@
-- name: Appetize Github Action
-  uses: appetizeio/github-action-appetize@v1.0.1
