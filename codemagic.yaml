@@ -1,8 +1,39 @@
 # Codemagic.yaml
 # https://docs.codemagic.io/docs/codemagic-yaml
 
+
 workflows:
-    sample-workflow:
-        name: Codemagic Sample Workflow
-        max_build_duration: 120
-        instance_type: mac_mini_m1
+  build-and-upload-to-appetize:
+    name: Build and Upload to Appetize
+    instance_type: mac_mini_m1
+    max_build_duration: 120
+    environment:
+      flutter: stable
+    #   xcode: latest
+      groups:
+        - appetize_credentials 
+    scripts:
+      - name: Install Flutter dependencies
+        script: flutter pub get
+      - name: Build Android
+        script: flutter build apk
+    #   - name: Build iOS
+    #     script: flutter build ipa
+
+      # Uploads
+      - name: Upload APK to Appetize
+        script: |
+          appet upload \
+            --platform android \
+            --token "$API_TOKEN" \
+            --file "build/app/outputs/apk/release/app-release.apk"
+    #   - name: Upload IPA to Appetize
+    #     script: |
+    #       appet upload \
+    #         --platform ios \
+    #         --token "$API_TOKEN" \
+    #         --file "build/ios/ipa/*.ipa"
+
+    artifacts:
+      - build/*/outputs//.apk
+    #   - build/*/outputs//.ipa
